@@ -80,18 +80,30 @@ final class GenresViewController: UIViewController {
             switch result {
             case let .success(genres):
                 self.genres = genres
-                self.tableView.reloadData()
-                self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                }
             case let .failure(error):
                 print("Cannot get genres, reason: \(error)")
             }
         }
     }
+    
+    private func presentMovieController(title: String) {
+        let movieController = MoviewViewController(title: title)
+        navigationController?.pushViewController(movieController, animated: true)
+    }
 }
 
 extension GenresViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row \(indexPath.row) selected")
+        let cell = tableView.cellForRow(at: indexPath)
+        let content = cell?.contentView as? UIListContentView
+        let configuration = content?.configuration as? UIListContentConfiguration
+        if let text = configuration?.text {
+            presentMovieController(title: text)
+        }
     }
 }
 
