@@ -14,15 +14,16 @@ final class GenresViewController: UIViewController {
     }
 
     private let genresProvider: GenresProvider
+    private let MoviesProvider: MoviesProvider
 
     private let tableView = UITableView()
     private let activityIndicator = UIActivityIndicatorView()
 
     private var genres = [Genre]()
 
-    init(genresProvider: GenresProvider) {
+    init(genresProvider: GenresProvider,moviesProvider: MoviesProvider) {
         self.genresProvider = genresProvider
-
+        self.MoviesProvider = moviesProvider
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -76,13 +77,13 @@ final class GenresViewController: UIViewController {
     private func getGenres() {
         activityIndicator.startAnimating()
 
-        genresProvider.getGenres { result in
+        genresProvider.getGenres { [weak self] result in
             switch result {
             case let .success(genres):
-                self.genres = genres
+                self?.genres = genres
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.activityIndicator.stopAnimating()
+                    self?.tableView.reloadData()
+                    self?.activityIndicator.stopAnimating()
                 }
             case let .failure(error):
                 print("Cannot get genres, reason: \(error)")
@@ -90,8 +91,8 @@ final class GenresViewController: UIViewController {
         }
     }
     
-    private func presentMovieController(title: String) {
-        let movieController = MoviewViewController(title: title)
+    private func presentMovieController(genre: Genre) {
+        let movieController = MoviewViewController(genre: genre,movieProvider: MoviesProvider)
         navigationController?.pushViewController(movieController, animated: true)
     }
 }
@@ -102,7 +103,10 @@ extension GenresViewController: UITableViewDelegate {
         let content = cell?.contentView as? UIListContentView
         let configuration = content?.configuration as? UIListContentConfiguration
         if let text = configuration?.text {
-            presentMovieController(title: text)
+            let genre = genres.first {
+                $0.name == text
+            }
+            presentMovieController(genre: genre ?? Genre(id: 1, name: ""))
         }
     }
 }

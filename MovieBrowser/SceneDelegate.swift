@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let apiManager = ApiManager()
         let genresProvider = GenresProvider(apiManager: apiManager)
-        let genresViewController = GenresViewController(genresProvider: genresProvider)
+        let moviesProvider = MoviesProvider(apiManager: apiManager)
+        let genresViewController = GenresViewController(genresProvider: genresProvider,moviesProvider: moviesProvider)
 
         window?.rootViewController = UINavigationController(rootViewController: genresViewController)
         window?.makeKeyAndVisible()

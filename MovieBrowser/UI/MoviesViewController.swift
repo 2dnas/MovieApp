@@ -8,10 +8,17 @@
 import UIKit
 
 final class MoviewViewController: UIViewController {
-    let navBarTitle: String!
+    let genre: Genre!
+    var movies = [Movie]()
     
-    init(title: String!) {
-        self.navBarTitle = title
+    private var MoviesProvider: MoviesProvider
+    
+    private let activityIndicator = UIActivityIndicatorView()
+
+    
+    init(genre: Genre, movieProvider: MoviesProvider ) {
+        self.genre = genre
+        self.MoviesProvider = movieProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -21,6 +28,24 @@ final class MoviewViewController: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = .white
-        title = navBarTitle
+        title = genre.name
+        getMovies(page: "1")
+    }
+    
+    // The Api doesn't provide functionality to set limit for a movie per page.
+    // There is 20 movie per page so I made 3 request and show first 50 as requested in task.
+    
+    private func getMovies(page: String) {
+        activityIndicator.startAnimating()
+        let genreID = String(genre.id)
+        
+        MoviesProvider.getMovies(genre: genreID ,page: page) { [weak self] result in
+            switch result {
+            case .success(let result):
+                self?.movies = result
+            case .failure(let error):
+                print("couldn't fetch movies with error \(error)")
+            }
+        }
     }
 }
