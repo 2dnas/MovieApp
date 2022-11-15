@@ -10,7 +10,6 @@ import UIKit
 
 final class MovieCell: UITableViewCell {
     typealias Colors = MovieCell.MovieColors
-    let imageBaseURL = "https://image.tmdb.org/t/p/original"
     let placeHolderImage = UIImage(named: "poster-preloading")!
     let movieTimeFormatter = MovieTimeFormatter()
     

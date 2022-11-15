@@ -85,14 +85,6 @@ private struct MoviesResponse: Codable {
         
 }
 
-
-extension MoviesProvider {
-    enum MovieError: Error {
-        case ImageFetchError
-    }
-}
-
-                               
             
 extension MoviesProvider {
     private enum ParamsKey: String {
