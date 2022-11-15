@@ -11,6 +11,7 @@
 		7C80D8422921697800651CA0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80D8412921697800651CA0 /* Movie.swift */; };
 		7C80D8452921944500651CA0 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80D8442921944500651CA0 /* MovieCell.swift */; };
 		7C80D85229236E1700651CA0 /* MovieTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80D85129236E1700651CA0 /* MovieTimeFormatter.swift */; };
+		7C80D85429237BA400651CA0 /* MovieTimeFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C80D85329237BA400651CA0 /* MovieTimeFormatterTests.swift */; };
 		F9A76D3E2915356B006636D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A76D3D2915356B006636D2 /* AppDelegate.swift */; };
 		F9A76D402915356B006636D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A76D3F2915356B006636D2 /* SceneDelegate.swift */; };
 		F9A76D422915356B006636D2 /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A76D412915356B006636D2 /* GenresViewController.swift */; };
@@ -40,6 +41,7 @@
 		7C80D8412921697800651CA0 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		7C80D8442921944500651CA0 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		7C80D85129236E1700651CA0 /* MovieTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTimeFormatter.swift; sourceTree = "<group>"; };
+		7C80D85329237BA400651CA0 /* MovieTimeFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTimeFormatterTests.swift; sourceTree = "<group>"; };
 		F9A76D3A2915356B006636D2 /* MovieBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A76D3D2915356B006636D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9A76D3F2915356B006636D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				F9A76D542915356C006636D2 /* MovieBrowserTests.swift */,
+				7C80D85329237BA400651CA0 /* MovieTimeFormatterTests.swift */,
 			);
 			path = MovieBrowserTests;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C80D85429237BA400651CA0 /* MovieTimeFormatterTests.swift in Sources */,
 				F9A76D552915356C006636D2 /* MovieBrowserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

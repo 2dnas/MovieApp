@@ -13,9 +13,18 @@ final class MovieTimeFormatter {
     func minutesToHours(minutes: Int) -> String {
         
         let hours = minutes / 60
-        let minutes = minutes % 60
-
-        return "\(hours)h \(minutes)m"
+        let minute = minutes % 60
+        
+        if minutes < 0 {
+            return "No Info"
+        } else if minutes < 60 {
+            return "\(minutes)m"
+        } else if (minutes % 60) == 0 {
+            return "\(hours)h"
+        }
+        
+        
+        return "\(hours)h \(minute)m"
     }
     
     //Time is comming YYYY-MM-SS format so we could cast it to Date and then use dateFormatter class
