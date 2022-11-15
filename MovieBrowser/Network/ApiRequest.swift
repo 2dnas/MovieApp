@@ -10,6 +10,7 @@ import Foundation
 struct ApiRequest {
     private enum Constants {
         static let defaultBaseURL: URL = URL(string: "https://api.themoviedb.org/3/")!
+        static let imageBaseURL: URL = URL(string: "https://image.tmdb.org/t/p/original/")!
     }
 
     let baseURL: URL
