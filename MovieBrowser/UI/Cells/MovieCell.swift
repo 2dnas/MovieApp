@@ -68,6 +68,7 @@ final class MovieCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "poster-preloading")
         imageView.image = image
+        imageView.layer.cornerRadius = 13
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
         return imageView
